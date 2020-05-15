@@ -129,11 +129,12 @@ public class Event extends JPanel {
     public void checkGameStatus() {
         if (bigLegs.isEmpty()) {
             pop.respawn();
-            winner = true;
             levelUp = true;
         }
         else if (pop.getLife() <= 0)
             gameOver = true;
+        else if(level > 2)
+            winner = true;
 
     }
 
