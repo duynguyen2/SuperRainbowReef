@@ -51,7 +51,7 @@ public class Pop extends Movable implements Observer {
         this.velocityY = velocityY;
     }
 
-    public void updateScore(int points) {
+    public void addPoints(int points) {
         score += points;
     }
 
@@ -99,6 +99,7 @@ public class Pop extends Movable implements Observer {
 
             if (this.xDouble <= 0 || this.xDouble >= mapSizeX)
                 respawn();
+
         }
         if (!this.isMoving)
             this.xDouble = this.katch.getX() + this.katch.getWidth() / 4;
@@ -120,12 +121,12 @@ public class Pop extends Movable implements Observer {
                 int objTopSide = obj.getY(), objBottomSide = obj.getY() + obj.getHeight();
 
                 if (obj instanceof CoralBlocks) {
-                    updateScore(((CoralBlocks) obj).getPoints());
+                    addPoints(((CoralBlocks) obj).getPoints());
                     this.gameWorld.getCoralBlocks().remove(obj);
                 }
 
                 else if (obj instanceof BigLegs) {
-                    updateScore(((BigLegs) obj).getPoints());
+                    addPoints(((BigLegs) obj).getPoints());
                     this.gameWorld.getBigLegs().remove(obj);
                 }
 
@@ -133,7 +134,7 @@ public class Pop extends Movable implements Observer {
                     if (((PowerUp) obj).getPowerUp().equals("life"))
                         life++;
 
-                    updateScore(((PowerUp) obj).getPoints());
+                    addPoints(((PowerUp) obj).getPoints());
                     this.gameWorld.getPowerUp().remove(obj);
                 }
 
@@ -173,7 +174,7 @@ public class Pop extends Movable implements Observer {
     public void respawn() {
         velocityX = 0;
         velocityY = 0;
-        setMoveOff();
+        this.setMoveOff();
         life--;
         this.yDouble = this.getY();
         this.xDouble = this.katch.getX() + this.katch.getWidth() / 4;

@@ -58,9 +58,9 @@ public class Event extends JPanel {
             drawMapLayout(g2);
             katch.drawImage(g2);
             pop.drawImage(g2);
-            g2.drawString("Score: " + pop.getScore(), 500, 400);
-            g2.drawString("Lives: " +  pop.getLife(), 50, 400);
-            g2.drawString("Level:" + this.getLevel(), 500, 380);
+            g2.drawString("Score: " + pop.getScore(), 520, 420);
+            g2.drawString("Lives: " +  pop.getLife(), 520, 400);
+            g2.drawString("Level:" + this.getLevel(), 520, 380);
             screen = img;
         } else if (winner) {
             g2.drawImage(this.winIMG, 0, 0, 615, 470, this);
@@ -68,9 +68,9 @@ public class Event extends JPanel {
         } else if (gameOver) {
             g2.drawImage(this.backgroundIMG, 0, 0, this);
             g2.drawImage(this.loseIMG, 0, 0, 615, 470, this);
-            g2.drawString("Score: " + pop.getScore(), 500, 400);
-            g2.drawString("Lives: " +  pop.getLife(), 50, 400);
-            g2.drawString("Level:" + this.getLevel(), 500, 380);
+            g2.drawString("Score: " + pop.getScore(), 380, 250);
+            g2.drawString("Lives: " +  pop.getLife(), 380, 250);
+            g2.drawString("Level:" + this.getLevel(), 380, 250);
             screen = img;
         }
 
@@ -133,7 +133,7 @@ public class Event extends JPanel {
         }
         else if (pop.getLife() <= 0)
             gameOver = true;
-        else if(level > 2)
+        else if(level > 3)
             winner = true;
 
     }
