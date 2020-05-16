@@ -53,14 +53,14 @@ public class GameWorld implements Runnable {
         BufferedImage katchIMG = ImageIO.read(getClass().getResource("/Katch.gif"));
         BufferedImage popIMG = ImageIO.read(getClass().getResource("/Pop.gif"));
 
-        this.katch = new Katch(615 / 2 - katchIMG.getWidth() / 2, 470 - katchIMG.getHeight() - popIMG.getHeight(), 3, katchIMG);
+        this.katch = new Katch(615 / 2 - katchIMG.getWidth() / 2, 470 - katchIMG.getHeight() - popIMG.getHeight(), 2, katchIMG);
         this.katch.setGameWorld(this);
 
-        this.pop = new Pop(this.katch, popIMG, 2);
+        this.pop = new Pop(this.katch, popIMG, 1);
         this.pop.setGameWorld(this);
 
         this.katch.setPop(this.pop);
-        this.katchControl = new KatchControl(katch, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_SPACE);
+        this.katchControl = new KatchControl(katch, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_SPACE);
         this.gameWorldObservable.addObserver(katch);
         this.gameWorldObservable.addObserver(pop);
         this.event.setKatch(this.katch);
