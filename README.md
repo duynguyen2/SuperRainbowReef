@@ -31,5 +31,5 @@ NOTE: The second game chosen to be built is Super Rainbow Reef. It is missing a 
 
 
 ## How to play:
-Player Controls: W, A for movement, left and right arrow keys to control the shooting angle and Spacebar to shoot.
+Player Controls: Left and right arrow keys for movement, the W, A keys to control the shooting angle and Spacebar to shoot.
 Once the player's lives reach 0, there will be a loss screen or all of the Big Leg sprites are gone, the game immediately goes to Congratulations screen. To replay, close the game window and re-run it.
