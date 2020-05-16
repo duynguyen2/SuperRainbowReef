@@ -11,6 +11,8 @@
 ## jar folder is used to store the built jar of your term-project. NO SOURCE CODE SHOULD BE IN THIS FOLDER. DOING SO WILL CAUSE POINTS TO BE DEDUCTED
 
 ## IMPORTING AND RUNNING THE PROJECT:
+NOTE: The second game chosen to be built is Super Rainbow Reef. It is missing a way to keep high scores and the Pop sprite may occasionally clip into an unbreakable object, and Pop will either lose a life or need a restart. This is something I'm still trying to figure out.
+
 1. First, clone the repository either by using the terminal/command prompt or using the Github desktop app. The easier method would be the Github app. Click the green button in the repository that says "Clone or download" and copy the HTTPS link. Open the app and select the File option in the upper righthand corner and select Clone repository... andgo to the URL tab and paste the link. Select the file path that works best for you and click Clone.
 
 2. The following instructions are for IntelliJ. Open IntelliJ and click the Import Project button. Then find where you cloned the repository and select the file then hit OK.
