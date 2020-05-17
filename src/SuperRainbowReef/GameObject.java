@@ -7,8 +7,8 @@ import javax.swing.JComponent;
 
 public abstract class GameObject extends JComponent {
 
-    Rectangle rectangle;
     int x, y, width, height;
+    Rectangle rectangle;
     protected BufferedImage img;
 
     public abstract void update();
