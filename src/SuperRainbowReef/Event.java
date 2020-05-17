@@ -5,7 +5,7 @@ import SuperRainbowReef.Movable.Pop;
 import SuperRainbowReef.Unmovable.Breakable.BigLegs;
 import SuperRainbowReef.Unmovable.Breakable.CoralBlocks;
 import SuperRainbowReef.Unmovable.Breakable.PowerUp;
-import SuperRainbowReef.Unmovable.Unbreakable.SolidBlocks;
+import SuperRainbowReef.Unmovable.Unbreakable.UnbreakableBlocks;
 import SuperRainbowReef.Unmovable.Unbreakable.Wall;
 
 import java.awt.Dimension;
@@ -25,7 +25,7 @@ public class Event extends JPanel {
     private int level = 1;
 
     private ArrayList<Wall> walls = new ArrayList<>();
-    private ArrayList<SolidBlocks> solidBlocks = new ArrayList<>();
+    private ArrayList<UnbreakableBlocks> unbreakableBlocks = new ArrayList<>();
     private ArrayList<CoralBlocks> coralBlocks = new ArrayList<>();
     private ArrayList<BigLegs> bigLegs = new ArrayList<>();
     private ArrayList<PowerUp> powerUp = new ArrayList<>();
@@ -76,9 +76,9 @@ public class Event extends JPanel {
 
     }
 
-    public void setMapObjects(ArrayList<Wall> walls, ArrayList<SolidBlocks> solidBlocks, ArrayList<CoralBlocks> coralBlocks, ArrayList<PowerUp> powerUp, ArrayList<BigLegs> bigLegs) {
+    public void setMapObjects(ArrayList<Wall> walls, ArrayList<UnbreakableBlocks> unbreakableBlocks, ArrayList<CoralBlocks> coralBlocks, ArrayList<PowerUp> powerUp, ArrayList<BigLegs> bigLegs) {
         this.walls = walls;
-        this.solidBlocks = solidBlocks;
+        this.unbreakableBlocks = unbreakableBlocks;
         this.coralBlocks = coralBlocks;
         this.powerUp = powerUp;
         this.bigLegs = bigLegs;
@@ -112,7 +112,7 @@ public class Event extends JPanel {
         for (Wall wall : walls)
             wall.drawImage(g);
 
-        for (SolidBlocks solidBlock : solidBlocks)
+        for (UnbreakableBlocks solidBlock : unbreakableBlocks)
             solidBlock.drawImage(g);
 
         for (CoralBlocks coralBlock : coralBlocks)

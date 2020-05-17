@@ -28,7 +28,7 @@ public class GameWorld implements Runnable {
     private boolean isRunning = false;
 
     private ArrayList<Wall> walls = new ArrayList<>();
-    private ArrayList<SolidBlocks> solidBlocks = new ArrayList<>();
+    private ArrayList<UnbreakableBlocks> unbreakableBlocks = new ArrayList<>();
     private ArrayList<CoralBlocks> coralBlocks = new ArrayList<>();
     private ArrayList<BigLegs> bigLegs = new ArrayList<>();
     private ArrayList<PowerUp> powerUp = new ArrayList<>();
@@ -100,7 +100,7 @@ public class GameWorld implements Runnable {
                     this.event.setLevelUpStatus(false);
                     this.event.levelUp();
                     this.coralBlocks.removeAll(coralBlocks);
-                    this.solidBlocks.removeAll(solidBlocks);
+                    this.unbreakableBlocks.removeAll(unbreakableBlocks);
                     powerUp.removeAll(powerUp);
                     this.initMap();
                     this.createMapObjects();
@@ -234,7 +234,7 @@ public class GameWorld implements Runnable {
                 }
                 if (map[i][j] == 2) {
                     img = ImageIO.read(getClass().getResource("/Block_solid.gif"));
-                    solidBlocks.add(new SolidBlocks(j * cell, i * cell, img.getWidth(), img.getHeight(), img));
+                    unbreakableBlocks.add(new UnbreakableBlocks(j * cell, i * cell, img.getWidth(), img.getHeight(), img));
                 }
                 if (map[i][j] == 3) {
                     img = ImageIO.read(getClass().getResource("/Block1.gif"));
@@ -283,12 +283,12 @@ public class GameWorld implements Runnable {
 
             }
         }
-        this.event.setMapObjects(walls, solidBlocks, coralBlocks, powerUp, bigLegs);
+        this.event.setMapObjects(walls, unbreakableBlocks, coralBlocks, powerUp, bigLegs);
 
         for (Wall wall : walls)
             this.gameWorldObservable.addObserver(wall);
 
-        for (SolidBlocks solidBlock : solidBlocks)
+        for (UnbreakableBlocks solidBlock : unbreakableBlocks)
             this.gameWorldObservable.addObserver(solidBlock);
 
         for (CoralBlocks coralBlock : coralBlocks)
@@ -306,7 +306,7 @@ public class GameWorld implements Runnable {
 
     public ArrayList<Wall> getWalls() { return this.walls; }
 
-    public ArrayList<SolidBlocks> getSolidBlocks() { return this.solidBlocks; }
+    public ArrayList<UnbreakableBlocks> getUnbreakableBlocks() { return this.unbreakableBlocks; }
 
     public ArrayList<CoralBlocks> getCoralBlocks() { return this.coralBlocks; }
 

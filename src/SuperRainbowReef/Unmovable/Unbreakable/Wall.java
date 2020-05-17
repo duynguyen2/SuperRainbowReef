@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Wall extends Unbreakable implements Observer {
+public class Wall extends UnbreakableWalls implements Observer {
 
     public Wall() {}
 

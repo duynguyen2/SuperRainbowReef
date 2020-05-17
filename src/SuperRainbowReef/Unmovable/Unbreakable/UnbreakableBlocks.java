@@ -5,9 +5,9 @@ import java.awt.image.BufferedImage;
 import java.util.Observable;
 import java.util.Observer;
 
-public class SolidBlocks extends Unbreakable implements Observer {
+public class UnbreakableBlocks extends UnbreakableWalls implements Observer {
 
-    public SolidBlocks(int x, int y, int width, int height, BufferedImage img) {
+    public UnbreakableBlocks(int x, int y, int width, int height, BufferedImage img) {
         super(x, y, img);
         this.setHeight(img.getHeight());
         this.setWidth(img.getWidth());

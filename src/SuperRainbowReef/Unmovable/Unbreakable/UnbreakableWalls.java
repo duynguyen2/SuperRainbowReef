@@ -5,11 +5,11 @@ import SuperRainbowReef.Unmovable.Unmovable;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Unbreakable extends Unmovable {
+public class UnbreakableWalls extends Unmovable {
 
-    public Unbreakable() {}
+    public UnbreakableWalls() {}
 
-    public Unbreakable(int x, int y, BufferedImage img) {
+    public UnbreakableWalls(int x, int y, BufferedImage img) {
         super(x, y, img);
     }
 
