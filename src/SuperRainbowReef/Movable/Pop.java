@@ -241,13 +241,13 @@ public class Pop extends Movable implements Observer {
 
         GameObject obj = null;
 
-        for (Wall curr : this.gameWorld.getWalls()) {
+        for (UnbreakableWall curr : this.gameWorld.getUnbreakableWalls()) {
             if (popRectangle.intersects(curr.getRectangle()))
                 obj = checkBorder(obj, curr);
 
         }
 
-        for (UnbreakableBlocks curr : this.gameWorld.getUnbreakableBlocks()) {
+        for (UnbreakableBlock curr : this.gameWorld.getUnbreakableBlocks()) {
             if (popRectangle.intersects(curr.getRectangle()))
                 obj = checkBorder(obj, curr);
 

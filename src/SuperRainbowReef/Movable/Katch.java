@@ -1,6 +1,6 @@
 package SuperRainbowReef.Movable;
 
-import SuperRainbowReef.Unmovable.Unbreakable.Wall;
+import SuperRainbowReef.Unmovable.Unbreakable.UnbreakableWall;
 import SuperRainbowReef.GameWorld;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -123,21 +123,21 @@ public class Katch extends Movable implements Observer {
         if (moveRightPressed)
             this.setX(this.getX() + (int )speed * 2);
 
-        Wall wall = new Wall();
-        for (Wall wall1 : this.gameWorld.getWalls())
-            if (this.getRectangle().intersects(wall1.getRectangle()))
-                wall = wall1;
+        UnbreakableWall unbreakableWall = new UnbreakableWall();
+        for (UnbreakableWall unbreakableWall1 : this.gameWorld.getUnbreakableWalls())
+            if (this.getRectangle().intersects(unbreakableWall1.getRectangle()))
+                unbreakableWall = unbreakableWall1;
 
 
-        if (wall != null) {
+        if (unbreakableWall != null) {
             int max_int = Integer.MAX_VALUE;
             int[] collision = new int[]{max_int, max_int};
 
-            if ((this.getX() + this.getWidth()) > wall.getRectangle().x && this.getX() < wall.getRectangle().x)
-                collision[0] = (this.getX() + this.getWidth()) - wall.getRectangle().x;
+            if ((this.getX() + this.getWidth()) > unbreakableWall.getRectangle().x && this.getX() < unbreakableWall.getRectangle().x)
+                collision[0] = (this.getX() + this.getWidth()) - unbreakableWall.getRectangle().x;
 
-            if (this.getX() < (wall.getRectangle().x + wall.getRectangle().width) && (this.getX() + this.getWidth()) > (wall.getRectangle().x + wall.getRectangle().width))
-                collision[1] = (wall.getRectangle().x + wall.getRectangle().width) - this.getX();
+            if (this.getX() < (unbreakableWall.getRectangle().x + unbreakableWall.getRectangle().width) && (this.getX() + this.getWidth()) > (unbreakableWall.getRectangle().x + unbreakableWall.getRectangle().width))
+                collision[1] = (unbreakableWall.getRectangle().x + unbreakableWall.getRectangle().width) - this.getX();
 
 
             int min = max_int;

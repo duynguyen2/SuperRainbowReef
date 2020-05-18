@@ -5,8 +5,8 @@ import SuperRainbowReef.Movable.Pop;
 import SuperRainbowReef.Unmovable.Breakable.BigLegs;
 import SuperRainbowReef.Unmovable.Breakable.CoralBlocks;
 import SuperRainbowReef.Unmovable.Breakable.PowerUp;
-import SuperRainbowReef.Unmovable.Unbreakable.UnbreakableBlocks;
-import SuperRainbowReef.Unmovable.Unbreakable.Wall;
+import SuperRainbowReef.Unmovable.Unbreakable.UnbreakableBlock;
+import SuperRainbowReef.Unmovable.Unbreakable.UnbreakableWall;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -24,8 +24,8 @@ public class Event extends JPanel {
     private int mapWidth, mapHeight;
     private int level = 1;
 
-    private ArrayList<Wall> walls = new ArrayList<>();
-    private ArrayList<UnbreakableBlocks> unbreakableBlocks = new ArrayList<>();
+    private ArrayList<UnbreakableWall> unbreakableWalls = new ArrayList<>();
+    private ArrayList<UnbreakableBlock> unbreakableBlocks = new ArrayList<>();
     private ArrayList<CoralBlocks> coralBlocks = new ArrayList<>();
     private ArrayList<BigLegs> bigLegs = new ArrayList<>();
     private ArrayList<PowerUp> powerUp = new ArrayList<>();
@@ -76,8 +76,8 @@ public class Event extends JPanel {
 
     }
 
-    public void setMapObjects(ArrayList<Wall> walls, ArrayList<UnbreakableBlocks> unbreakableBlocks, ArrayList<CoralBlocks> coralBlocks, ArrayList<PowerUp> powerUp, ArrayList<BigLegs> bigLegs) {
-        this.walls = walls;
+    public void setMapObjects(ArrayList<UnbreakableWall> unbreakableWalls, ArrayList<UnbreakableBlock> unbreakableBlocks, ArrayList<CoralBlocks> coralBlocks, ArrayList<PowerUp> powerUp, ArrayList<BigLegs> bigLegs) {
+        this.unbreakableWalls = unbreakableWalls;
         this.unbreakableBlocks = unbreakableBlocks;
         this.coralBlocks = coralBlocks;
         this.powerUp = powerUp;
@@ -109,10 +109,10 @@ public class Event extends JPanel {
     }
 
     private void drawMapLayout(Graphics2D g) {
-        for (Wall wall : walls)
-            wall.drawImage(g);
+        for (UnbreakableWall unbreakableWall : unbreakableWalls)
+            unbreakableWall.drawImage(g);
 
-        for (UnbreakableBlocks solidBlock : unbreakableBlocks)
+        for (UnbreakableBlock solidBlock : unbreakableBlocks)
             solidBlock.drawImage(g);
 
         for (CoralBlocks coralBlock : coralBlocks)
